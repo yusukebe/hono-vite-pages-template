@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --ssr",
+    "build": "vite build",
     "preview": "wrangler pages dev dist",
     "deploy": "$npm_execpath build && wrangler pages deploy dist"
   },
@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230914.0",
-    "@hono/vite-dev-server": "^0.0.11",
-    "@types/node": "^20.8.7",
+    "@hono/vite-cloudflare-pages": "^0.0.2",
+    "@hono/vite-dev-server": "^0.0.12",
     "vite": "^4.5.0",
     "wrangler": "^3.14.0"
   }

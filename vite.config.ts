@@ -1,24 +1,12 @@
-import { builtinModules } from 'module'
 import { defineConfig } from 'vite'
-import devServer, { defaultOptions } from '@hono/vite-dev-server'
+import devServer from '@hono/vite-dev-server'
+import pages from '@hono/vite-cloudflare-pages'
 
 export default defineConfig({
-  ssr: {
-    noExternal: true
-  },
-  build: {
-    rollupOptions: {
-      external: [...builtinModules, /^node:/],
-      input: '_worker.ts',
-      output: {
-        dir: './dist'
-      }
-    }
-  },
   plugins: [
+    pages(),
     devServer({
-      entry: 'src/index.tsx',
-      exclude: ['/static/.+', ...defaultOptions.exclude]
+      entry: 'src/index.tsx'
     })
   ]
 })
