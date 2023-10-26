@@ -1,5 +1,4 @@
 import { jsxRenderer } from 'hono/jsx-renderer'
-import { html } from 'hono/html'
 import 'hono'
 
 declare module 'hono' {
@@ -9,14 +8,13 @@ declare module 'hono' {
 }
 
 export const renderer = jsxRenderer(({ children, title }) => {
-  return html`<!DOCTYPE html>
+  return (
     <html>
       <head>
         <link href="/static/style.css" rel="stylesheet" />
-        <title>${title}</title>
+        <title>{title}</title>
       </head>
-      <body>
-        ${children}
-      </body>
-    </html>`
+      <body>{children}</body>
+    </html>
+  )
 })
